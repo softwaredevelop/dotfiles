@@ -22,3 +22,6 @@ indent_size = 2
 
 [*.{yml,yaml}]
 indent_size = 2
+
+[.functions]
+indent_size = 2
