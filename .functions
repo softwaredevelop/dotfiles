@@ -109,3 +109,7 @@ function shfmt-inst() {
     sudo chown root /usr/local/bin/shfmt &&
     sudo chgrp root /usr/local/bin/shfmt
 }
+
+function shrm() {
+  shred -vxz "$@" && rm -fv "$@"
+}
