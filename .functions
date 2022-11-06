@@ -79,3 +79,7 @@ function hadolint-inst() {
     sudo mv hadolint-$OS-"$ARCH" /usr/local/bin/hadolint &&
     sudo chmod +x /usr/local/bin/hadolint
 }
+
+function hello() {
+  echo "hello"
+}
