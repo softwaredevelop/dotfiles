@@ -60,3 +60,22 @@ function gi() {
     -e '/^$/d' \
     -e '/^#/ s/^/\n/'
 }
+
+function hadolint-inst() {
+  sudo -v
+  if ! command -v curl >/dev/null 2>&1; then
+    sudo apt-get update &&
+      sudo apt-get install --no-install-recommends --assume-yes \
+        curl
+  fi
+  VERSION=${1:-"2.10.0"}
+  case "$OSTYPE" in
+  linux-*)
+    OS=Linux
+    ;;
+  esac
+  ARCH=$(uname -m)
+  sudo curl -O -L -C - https://github.com/hadolint/hadolint/releases/download/v"$VERSION"/hadolint-$OS-"$ARCH" &&
+    sudo mv hadolint-$OS-"$ARCH" /usr/local/bin/hadolint &&
+    sudo chmod +x /usr/local/bin/hadolint
+}
